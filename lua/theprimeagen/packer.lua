@@ -32,10 +32,15 @@ return require('packer').startup(function(use)
             ts_update()
         end, }
     use("nvim-treesitter/playground")
-    use("theprimeagen/harpoon")
-    -- use("theprimeagen/refactoring.nvim")
+
+    -- use "nvim-lua/plenary.nvim" -- don't forget to add this one if you don't have it yet!
+    use {
+        "ThePrimeagen/harpoon",
+        branch = "harpoon2",
+        requires = { { "nvim-lua/plenary.nvim" } }
+    }
+
     use("mbbill/undotree")
-    use("tpope/vim-fugitive")
     use("nvim-treesitter/nvim-treesitter-context");
 
     use {
@@ -77,4 +82,5 @@ return require('packer').startup(function(use)
         'nvim-lualine/lualine.nvim',
         requires = { 'nvim-tree/nvim-web-devicons', opt = true }
     }
+    use "terrortylor/nvim-comment"
 end)
